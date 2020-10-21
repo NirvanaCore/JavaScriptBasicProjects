@@ -10,7 +10,7 @@ function countDown( ){
 
   const newYears = ((currentDate.getFullYear())+1);
 
-  const newYearDate = new Date(`Jan 1, ${newYears}`); 
+  const newYearDate = new Date(`Jan 1 ${newYears}`); 
 
   const totalSeconds = (newYearDate- currentDate)/1000;
 
@@ -18,6 +18,7 @@ function countDown( ){
   const hours = Math.floor(totalSeconds / 3600) % 24;
   const minutes = Math.floor(totalSeconds / 60) % 60;
   const seconds =Math.floor(totalSeconds) %60;
+
   const year = Math.floor(newYears);
 
   daysCount.innerHTML = formateTime(days);
