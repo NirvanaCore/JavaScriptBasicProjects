@@ -83,7 +83,6 @@ const c_text = document.getElementById('c_text');
 const d_text = document.getElementById('d_text');
 
 const sub_btn = document.getElementById('sub_btn');
-
 const popUpMsg = document.getElementById('popUp');
 
 var currentQue = 0;
@@ -123,7 +122,6 @@ function deSelectAnswer(){
   })
 }
 
-
 sub_btn.addEventListener('click', () => {
 
   const answer = getSelected();
@@ -131,10 +129,9 @@ sub_btn.addEventListener('click', () => {
     if (answer){
       
               if (answer  === questionData[currentQue].correct) {
-
                       setTimeout(function() {
                       popUpMsg.style.display = "block"; 
-                document.getElementById('popup-content').innerHTML = 'Correct Answer';
+                      document.getElementById('popup-content').innerHTML = 'Your Answer is Correct';
                       },0.1);                      
                       score = score+1;
                       currentQue++;
@@ -143,15 +140,14 @@ sub_btn.addEventListener('click', () => {
               else{
                       setTimeout(function() {
                       popUpMsg.style.display = "block"; 
-                      document.getElementById('popup-content').innerHTML = 'Wrong Answer';
+                      document.getElementById('popup-content').innerHTML = 'Your Answer is Wrong';
                       },0.1);  
                     currentQue++;
               }
 
               setTimeout(function() {
               popUpMsg.style.display = "none"; 
-              },800);
-              // currentQue++;
+              },800);     
 
                 if (currentQue <  questionData.length) {
                 loadQuiz();   
@@ -159,7 +155,6 @@ sub_btn.addEventListener('click', () => {
                 quiz_result.innerHTML =                  
                 `<h2> You Answered Correctly ${score}/ ${questionData.length} questions .</h2>   
                 <button onclick="location.reload()">Reload</button>`;
-              }
-              
+              }              
     }  
 });
