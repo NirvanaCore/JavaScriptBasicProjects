@@ -84,6 +84,8 @@ const d_text = document.getElementById('d_text');
 
 const sub_btn = document.getElementById('sub_btn');
 
+const popUpMsg = document.getElementById('popUp');
+
 var currentQue = 0;
 var score = 0;
 
@@ -94,7 +96,6 @@ function loadQuiz( ){
   deSelectAnswer();
   
   const currentQueData = questionData[currentQue];
-  //var realAnswer = questionData[currentQue].correct;
     
     que_text.innerText = currentQueData.question;
     a_text.innerText = currentQueData.a;
@@ -111,7 +112,6 @@ function getSelected() {
         ans = ans_text.id;
       }
   });
-     console.log("soniya");
       return ans; 
 }
 
@@ -123,16 +123,35 @@ function deSelectAnswer(){
   })
 }
 
+
 sub_btn.addEventListener('click', () => {
 
   const answer = getSelected();
   
     if (answer){
-       
+      
               if (answer  === questionData[currentQue].correct) {
-                score = score+1;
-              }  
-              currentQue++;
+
+                      setTimeout(function() {
+                      popUpMsg.style.display = "block"; 
+                document.getElementById('popup-content').innerHTML = 'Correct Answer';
+                      },0.1);                      
+                      score = score+1;
+                      currentQue++;
+              }
+              
+              else{
+                      setTimeout(function() {
+                      popUpMsg.style.display = "block"; 
+                      document.getElementById('popup-content').innerHTML = 'Wrong Answer';
+                      },0.1);  
+                    currentQue++;
+              }
+
+              setTimeout(function() {
+              popUpMsg.style.display = "none"; 
+              },800);
+              // currentQue++;
 
                 if (currentQue <  questionData.length) {
                 loadQuiz();   

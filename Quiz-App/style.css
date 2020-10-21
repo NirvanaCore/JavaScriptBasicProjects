@@ -12,7 +12,28 @@ body {
   font-family: roboto, sans-serif;
   margin: 0; 
   min-height: 100vh;
+}
 
+.popUp{
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: auto;
+  top: 7rem;
+  padding:10px ;
+  text-align: center;
+  height: 6vh;
+  width: 300px;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #ffffff;
+  border-radius: 10px;
+}
+
+.popup-content{
+  color: rgb(3, 31, 5);
+  font-size: 1.5rem;
 }
 
 .quiz-container {
