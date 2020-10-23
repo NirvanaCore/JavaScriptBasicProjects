@@ -7,5 +7,7 @@
 ## 2- Quiz App
 -- JavaScript quiz app designed for 10 questions, with 4 options each and a submit button. Clicking on submit button will popup a message that your answer was right or wrong and it new question will encounter. After completing all questions it will show Score and a reload to button to start quiz from starting.
 
+## 3- Change Background-Color from Array or Hex/Rgb values.
+-- Background color change by two ways either by array of given names of colors or by random color through HexCode or RGB values and also print HexCode or RgbValue of color.
 
 
