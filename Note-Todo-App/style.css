@@ -1,0 +1,344 @@
+@import url('https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Sansita Swashed',
+    cursive;
+}
+
+body {
+  background-color: #053d3d;
+  display: flex;
+}
+
+.container {
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  overflow: hidden;
+}
+
+/* Top heading */
+h1 {
+  font-weight: normal;
+  padding: 1rem;
+  font-size: 3rem;
+  position: relative;
+  color: white;
+}
+
+/* container for todo and note switch button */
+.note-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: center;
+  text-align: center;
+}
+
+header {
+  position: fixed;
+  top: 5rem;
+  left: 20%;
+  right: 20%;
+  background-color: white;
+  text-align: center;
+  background: transparent;
+}
+
+header,
+.addData {
+  min-height: 10vh;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/*  Empty list or note heading */
+h2 {
+  color: rgba(0, 0, 0, 0.473);
+  margin: 20px;
+  padding-top: 5rem;
+  text-align: center;
+  font-size: 3rem;
+}
+
+/* form and data container */
+.addData form {
+  width: 90%;
+}
+
+.addTodos {
+  position: absolute;
+  top: 12rem;
+  left: 10%;
+  right: 10%;
+  margin: auto;
+  width: 70%;
+  height: 80%;
+  /* background-color: red; */
+}
+
+.addNotes{
+  position: absolute;
+  top: 12rem;
+  left: 10%;
+  right: 10%;
+  margin: auto;
+  width: 70%;
+  height: 80%;
+  /* background-color: blue; */
+}
+
+.nav-item {
+  margin: auto 1rem;
+  border: 0;
+  padding: 15px 25px;
+  border-radius: 7px;
+  font-size: 2rem;
+  font-weight: 700;
+  transition: 0.5s ease-in-out;
+}
+
+.nav-item:hover {
+  background: #000;
+  color: white;
+}
+
+.add_todo input,
+.add_todo button{
+  position: relative;
+  padding: 0.5rem;
+  border: none;
+  font-size: 1.5rem;
+  border-radius: 5px;
+  background: white;
+}
+
+form button {
+  color: #02014e;
+  background-color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+form button:hover {
+  color: #f1f1f1;
+  background-color: #0a06f1;
+}
+
+/* todo container */
+.add_todo input {
+  width: 60%;
+
+}
+
+.todo_container {
+  position: absolute;
+  top: 20%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: start;
+}
+
+.todo_list {
+  min-width: 50%;
+  list-style: none;
+}
+
+.todo {
+  margin: 0.7rem;
+  background: white;
+  font-size: 1.5rem;
+  color: black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.todo li {
+  flex: 1;
+  margin-left: 20px;
+}
+
+.trash_btn,
+.complete_btn {
+  background-color: #053d3d;
+  color: white;
+  border: none;
+  padding: 1rem;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.trash_btn {
+  background-color: rgb(211, 0, 0);
+}
+
+.complete_btn {
+  background-color: rgb(54, 129, 3);
+}
+
+.todo-item {
+  padding: 0rem 0.5rem;
+}
+
+.fa-trash,
+.fa-check {
+  pointer-events: none;
+}
+
+.completed {
+  text-decoration: line-through;
+  text-decoration-color: red;
+  text-decoration-thickness: 0.2rem;
+  opacity: 0.6;
+}
+
+.delete {
+  transform: translateZ();
+  transition: 0.2s ease-in-out;
+  opacity: 0;
+}
+
+.select {
+  margin: 0.5rem;
+  display: block;
+  overflow: hidden;
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  right: 10%;
+}
+
+select {
+  color: #000;
+  font-size: large;
+  width: 10rem;
+  cursor: pointer;
+}
+
+select::after {
+  pointer-events: none;
+}
+
+/* Note Container */
+
+.add_Note{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-evenly ;
+  text-align: start;
+  align-items: stretch;
+}
+
+.add_Note input,
+.add_Note button,
+.add_Note textarea {
+  position: relative;
+  left: 10%;
+  margin: 0.2rem;
+  padding: 10px;
+  font-size:1.3rem;
+  border: none;
+  border-radius: 5px;
+  background: white;
+}
+
+.add_Note input,
+.add_Note textarea{
+  width: 80%;
+}
+.note_container {
+  position: absolute;
+  margin: 0;
+  padding: 15px;
+  top: 35%;
+  width: 100%;
+  height: 300px;
+  display: grid;
+    grid-template-columns: repeat(auto-fill, 250px);
+    gap: 12px;
+  justify-content: space-between;
+  align-items: baseline;
+  text-align: start;
+}
+
+.noteCard{
+  background-color: #e9e7e7;
+  display: block;
+  padding: 10px;
+  flex-direction: row;
+  justify-content: left;
+  align-items: baseline;
+  text-align: start;
+  width: auto;
+  height: 220px;
+  overflow: auto;
+}
+
+.noteCard .noteTitle {
+  padding: 2px;
+  color: #000;
+  height: 20%;
+  font-size: 1.2rem;
+}
+
+.noteCard .noteText {
+  padding: 2px;
+  color: #000;
+  height: 120px;
+  font-size: 1.3rem;
+  overflow: auto;
+}
+
+.noteCard .tools {
+    height: 30px;
+  background-color:transparent;
+  padding : 0rem 0.5rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+.noteCard .tools button {
+  background-color: transparent;
+  border: none;
+  font-size: 1.3rem;
+  margin-left: 0.5rem;
+  cursor: pointer;
+
+}
+.tools .deleteBtn{
+  color: red;
+}
+.tools .editBtn {
+  color: rgb(17, 0, 255);
+}
+
+.note_list {
+  min-width: 50%;
+  list-style: none;
+}
+
+.note {
+  margin: 0.7rem;
+  background: white;
+  font-size: 1.5rem;
+  color: black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease;
+}
