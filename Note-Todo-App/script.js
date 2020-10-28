@@ -26,7 +26,13 @@ const note = document.querySelector('.note_textarea');
 const noteContainer = document.querySelector('.note_container');
 const noteButton = document.querySelector('.note_button');
 
-let notesList = JSON.parse(localStorage.getItem(noteContainer));
+// const notesList =[];
+let notesList = JSON.parse(localStorage.getItem('notes'));
+if (notesList == null) {
+  notesList = [];
+} else {
+  checkNotesList();
+}
 
 //Selectors for Todo form
 const todoInput = document.querySelector('.todo_input');
@@ -45,7 +51,7 @@ filterOption.addEventListener('click', filterTodo);
 
 //Event Listener for add Notes list items
 noteButton.addEventListener('click', addNote);
-//noteContainer.addEventListener('click', deleteNote);
+noteContainer.addEventListener('click', deleteNote);
 // noteContainer.addEventListener('click',editNote);
 
 // -----------------Note --------------------
@@ -94,7 +100,7 @@ function addNote(e) {
     noteContainer.appendChild(noteDiv);
 
     // Add to Local Storage
-    // saveToLocalNotes(title.value, note.value);
+    saveToLocalNotes(title.value, note.value);
 
     //set both value again blank
     title.value = '';
@@ -102,55 +108,50 @@ function addNote(e) {
   }
 }
 
-// function deleteNote(e){
-//     const deleteNote = e.target;
-//     console.log(deleteNote);
-//     // Delete item
-//     if (deleteNote.classList[0] === 'deleteBtn') {
-//       const noteEl = deleteNote.parentElement;
-//       noteEl.classList.add('delete');
-//       removeLocalNote(note);
-//       deleteNote.addEventListener('transitionend', function () {
-//         deleteNote.remove();
-//       });
-//     }
-//   }
+function deleteNote(e) {
+  const deleteNote = e.target;
+  console.log(deleteNote);
+  // Delete item
+  if (deleteNote.classList[0] === 'deleteBtn') {
+    const noteEl = deleteNote.parentElement;
+    noteEl.classList.add('delete');
+    removeLocalNote(noteEl);
+    deleteNote.addEventListener('transitionend', function () {
+      deleteNote.remove();
+    });
+  }
+}
 
-// function checkNotesList(el1,el2) {
-//   let notes = localStorage.getItem('note_container');
-//   if (notes == null) {
-//     newNotes = {};
-//   } else {
-//     newNotes = JSON.parse(notes);
-//   }
-//   return this.newNotes;
-// }
+function removeLocalNote(noteEl) {
+  notes = checkNotesList(noteEl);
+  const noteIndex = noteEl.children[0].innerHTML;
+  notes.splice(notes.indexOf(noteIndex), 1);
+  localStorage.setItem('notes', JSON.stringify(notesList));
+}
 
-// function saveToLocalNotes(el1, el2) {
-//   let newNotes = checkNotesList();
-//   newNotes.title = el1;
-//   newNotes.note = el2;
-//   notesList.push(newNotes);
-//   console.log(notesList);
-//   localStorage.setItem('notes', JSON.stringify(notesList));
-// }
+function checkNotesList(note1, note2) {
+  let noteLi = localStorage.getItem('notes');
+  if (noteLi == null) {
+    newNotes = {};
+  } else {
+    newNotes = JSON.parse(noteLi);
+  }
+  return this.newNotes;
+}
 
-// function removeLocalNote(note) {
-//   notes = checkNotesList(note);
-//   const noteIndex = note.children[0].innerHTML;
-//   notes.splice(notes.indexOf(noteIndex), 1);
-//   localStorage.setItem('notes', JSON.stringify(notes));
-// }
+function saveToLocalNotes(el1, el2) {
+  checkNotesList();
+  let newNotes = {
+    title: el1,
+    text: el2,
+  };
+  notesList.push(newNotes);
+  localStorage.setItem('notes', JSON.stringify(notesList));
+}
 
 function getFromLocalNotes() {
-  let notes = localStorage.getItem('note_container');
-    if (notes == null) {
-      newNotes = {};
-    } else {
-      newNotes = JSON.parse(notes);
-    }
+  let newNotes = checkNotesList();
   newNotes.forEach(function (element) {
-    console.log('hello ,' + this.element);
     const noteDiv = document.createElement('div');
     noteDiv.classList.add('noteCard');
 
@@ -180,7 +181,7 @@ function getFromLocalNotes() {
 
     const noteText = document.createElement('p');
     noteText.classList.add('noteText');
-    noteText.innerText = element.note;
+    noteText.innerText = element.text;
     noteDiv.appendChild(noteText);
 
     // append noteDiv to container
