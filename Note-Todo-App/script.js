@@ -109,7 +109,7 @@ function deleteNote(e) {
       deleteNote.remove();
     });
   }
-  return document.querySelectorAll('addNotes');
+  return location.reload();
 }
 
 function removeLocalNote(noteEl) {

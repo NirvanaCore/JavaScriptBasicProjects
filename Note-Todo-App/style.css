@@ -9,8 +9,8 @@
 }
 
 body {
-  background-color: #053d3d;
-  background: linear-gradient(to bottom right, #053d3d 0%, #098a8a 100%);
+background-color: #2b1331;
+background-image: linear-gradient(315deg, #260f2b 0%, #160335 74%);
   display: flex;
 }
 
