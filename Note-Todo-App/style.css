@@ -272,7 +272,7 @@ select::after {
     grid-template-columns: repeat(auto-fill, 250px);
     gap: 12px;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: flex-start;
   text-align: start;
 }
 
@@ -281,8 +281,8 @@ select::after {
   display: block;
   padding: 10px;
   flex-direction: row;
-  justify-content: left;
-  align-items: baseline;
+  justify-content: space-between;
+  align-items: center;
   text-align: start;
   width: auto;
   height: 220px;
@@ -304,28 +304,28 @@ select::after {
   overflow: auto;
 }
 
-.noteCard .tools {
-    height: 30px;
-  background-color:transparent;
-  padding : 0rem 0.5rem;
+.noteCard button {
+  background-color: rgb(211, 0, 0);
+  padding: 10px;
+  float:right;
   display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
-}
-.noteCard .tools button {
-  background-color: transparent;
-  border: none;
-  font-size: 1.3rem;
-  margin-left: 0.5rem;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+  width: 2rem;
+  height: 2rem;
+  border-radius:50%;  
+  font-size: 1rem;
   cursor: pointer;
 
 }
-.tools .deleteBtn{
-  color: red;
+.deleteBtn{
+  color: #e9e7e7;
 }
-.tools .editBtn {
-  color: rgb(17, 0, 255);
+.deleteBtn:hover{
+  color: #464545;
 }
+
 
 .note_list {
   min-width: 50%;
@@ -338,7 +338,18 @@ select::after {
   font-size: 1.5rem;
   color: black;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  /* justify-content: space-between;
+  align-items: center; */
   transition: all 0.3s ease;
 }
+
+.fa-times{
+  pointer-events: none;
+}
+
+.deleteNote {
+  transform: translateX();
+  transition: 0.2s ease-in-out;
+  opacity: 0;
+}
+

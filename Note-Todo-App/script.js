@@ -28,6 +28,7 @@ const noteButton = document.querySelector('.note_button');
 
 // const notesList =[];
 let notesList = JSON.parse(localStorage.getItem('notes'));
+var noteIndex = 0;
 if (notesList == null) {
   notesList = [];
 } else {
@@ -52,38 +53,25 @@ filterOption.addEventListener('click', filterTodo);
 //Event Listener for add Notes list items
 noteButton.addEventListener('click', addNote);
 noteContainer.addEventListener('click', deleteNote);
-// noteContainer.addEventListener('click',editNote);
 
 // -----------------Note --------------------
 
 //function to add note
-function addNote(e) {
+function addNote(e, index) {
   e.preventDefault();
-
   //Create note div
   const noteDiv = document.createElement('div');
   noteDiv.classList.add('noteCard');
+  noteDiv.id = noteIndex;
 
   if (title.value == '' || note.value == '') {
     return alert('Please enter both title and note');
   } else {
-    const tools = document.createElement('div');
-    tools.classList.add('tools');
-
-    //edit button added to each note and append to tool div
-    const editButton = document.createElement('button');
-    editButton.innerHTML = '<i class="fas fa-edit"></i>';
-    editButton.classList.add('editBtn');
-    tools.appendChild(editButton);
-
-    //delete button added to each note and append to tool div
+    //delete button added to  note div
     const deleteButton = document.createElement('button');
-    deleteButton.innerHTML = '<i class="fas fa-trash"></i>';
+    deleteButton.innerHTML = '<i class="fas fa-times"></i>';
     deleteButton.classList.add('deleteBtn');
-    tools.appendChild(deleteButton);
-
-    //append tool div to note div
-    noteDiv.appendChild(tools);
+    noteDiv.appendChild(deleteButton);
 
     // title add to note div
     const noteTitle = document.createElement('h5');
@@ -100,21 +88,22 @@ function addNote(e) {
     noteContainer.appendChild(noteDiv);
 
     // Add to Local Storage
-    saveToLocalNotes(title.value, note.value);
+    saveToLocalNotes(noteIndex, title.value, note.value);
 
     //set both value again blank
     title.value = '';
     note.value = '';
+
+    noteIndex++;
   }
 }
 
 function deleteNote(e) {
   const deleteNote = e.target;
-  console.log(deleteNote);
   // Delete item
   if (deleteNote.classList[0] === 'deleteBtn') {
     const noteEl = deleteNote.parentElement;
-    noteEl.classList.add('delete');
+    noteEl.classList.add('deleteNote');
     removeLocalNote(noteEl);
     deleteNote.addEventListener('transitionend', function () {
       deleteNote.remove();
@@ -123,10 +112,16 @@ function deleteNote(e) {
 }
 
 function removeLocalNote(noteEl) {
-  notes = checkNotesList(noteEl);
-  const noteIndex = noteEl.children[0].innerHTML;
-  notes.splice(notes.indexOf(noteIndex), 1);
-  localStorage.setItem('notes', JSON.stringify(notesList));
+  notesLi = checkNotesList();
+  let noteId = noteEl.id;
+  for (let i = 0; i < notesLi.length; i++) {
+    if (notesLi[i].id == noteId) {
+      let note = notesLi[i];
+      notesLi.splice(notesLi.indexOf(note), 1);
+      // break;
+    }
+  }
+  localStorage.setItem('notes', JSON.stringify(notesLi));
 }
 
 function checkNotesList(note1, note2) {
@@ -136,12 +131,13 @@ function checkNotesList(note1, note2) {
   } else {
     newNotes = JSON.parse(noteLi);
   }
-  return this.newNotes;
+  return newNotes;
 }
 
-function saveToLocalNotes(el1, el2) {
+function saveToLocalNotes(index, el1, el2) {
   checkNotesList();
-  let newNotes = {
+  var newNotes = {
+    id: index,
     title: el1,
     text: el2,
   };
@@ -154,24 +150,14 @@ function getFromLocalNotes() {
   newNotes.forEach(function (element) {
     const noteDiv = document.createElement('div');
     noteDiv.classList.add('noteCard');
-
-    const tools = document.createElement('div');
-    tools.classList.add('tools');
-
-    //edit button added to each note and append to tool div
-    const editButton = document.createElement('button');
-    editButton.innerHTML = '<i class="fas fa-edit"></i>';
-    editButton.classList.add('editBtn');
-    tools.appendChild(editButton);
+    noteDiv.id = element.id;
+    console.log(noteDiv.id);
 
     //delete button added to each note and append to tool div
     const deleteButton = document.createElement('button');
-    deleteButton.innerHTML = '<i class="fas fa-trash"></i>';
+    deleteButton.innerHTML = '<i class="fas fa-times"></i>';
     deleteButton.classList.add('deleteBtn');
-    tools.appendChild(deleteButton);
-
-    //append tool div to note div
-    noteDiv.appendChild(tools);
+    noteDiv.appendChild(deleteButton);
 
     // title add to note div
     const noteTitle = document.createElement('h5');
