@@ -9,7 +9,7 @@ $('.addNotes').hide();
 
 // Show Todo container and hide Hide container
 $('.openTodo').click(function () {
-  // Show Todo container and hide Note container
+  // Show Todo container and hide Note containerf
   $('.addNotes').hide();
   $('.addTodos').show();
 });
@@ -109,6 +109,7 @@ function deleteNote(e) {
       deleteNote.remove();
     });
   }
+  return document.querySelectorAll('addNotes');
 }
 
 function removeLocalNote(noteEl) {
