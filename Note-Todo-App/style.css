@@ -10,6 +10,7 @@
 
 body {
   background-color: #053d3d;
+  background: linear-gradient(to bottom right, #053d3d 0%, #098a8a 100%);
   display: flex;
 }
 
@@ -31,6 +32,13 @@ h1 {
   font-size: 3rem;
   position: relative;
   color: white;
+}
+
+@media (max-width: 720px){
+  h1{
+    padding-top: 3rem;
+    font-size: 1.8rem;
+  }
 }
 
 /* container for todo and note switch button */
@@ -61,13 +69,11 @@ header,
   align-items: flex-start;
 }
 
-/*  Empty list or note heading */
-h2 {
-  color: rgba(0, 0, 0, 0.473);
-  margin: 20px;
-  padding-top: 5rem;
-  text-align: center;
-  font-size: 3rem;
+@media(max-width: 720px) {
+header,
+.addData {
+    padding: 5px;
+  }
 }
 
 /* form and data container */
@@ -97,7 +103,7 @@ h2 {
   /* background-color: blue; */
 }
 
-.nav-item {
+.nav-item{
   margin: auto 1rem;
   border: 0;
   padding: 15px 25px;
@@ -106,6 +112,14 @@ h2 {
   font-weight: 700;
   transition: 0.5s ease-in-out;
 }
+
+@media(max-width: 720px){
+  .nav-item{
+    font-size: 1.2rem;
+    padding: 5px;
+  }
+}
+
 
 .nav-item:hover {
   background: #000;
@@ -122,8 +136,16 @@ h2 {
   background: white;
 }
 
+@media(max-width: 720px) {
+.add_todo input,
+.add_todo button {
+    font-size: 1rem;
+    padding: 10px;
+  }
+}
+
 form button {
-  color: #02014e;
+  color: #0805af;
   background-color: white;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -131,7 +153,7 @@ form button {
 
 form button:hover {
   color: #f1f1f1;
-  background-color: #0a06f1;
+  background-color: #0805af;
 }
 
 /* todo container */
@@ -156,6 +178,12 @@ form button:hover {
   list-style: none;
 }
 
+@media (max-width: 720px) {
+  .todo_list {
+  min-width: 90%;
+  }
+}
+
 .todo {
   margin: 0.7rem;
   background: white;
@@ -174,13 +202,28 @@ form button:hover {
 
 .trash_btn,
 .complete_btn {
-  background-color: #053d3d;
+  background-color: #0805af;
   color: white;
   border: none;
   padding: 1rem;
   cursor: pointer;
   font-size: 1rem;
 }
+
+@media (max-width: 720px) {
+  .trash_btn,
+  .complete_btn {
+    padding: 10px;
+    font-size: 12px;
+  }
+  .todo{
+    font-size: 1rem;
+  }
+  .select .filter_todo {
+    font-size: 1rem;
+  }
+}
+
 
 .trash_btn {
   background-color: rgb(211, 0, 0);
@@ -257,6 +300,14 @@ select::after {
   background: white;
 }
 
+@media (max-width: 720px) {
+  .add_Note input,
+  .add_Note button,
+  .add_Note textarea {
+    font-size: 1rem;
+  }
+}
+
 .add_Note input,
 .add_Note textarea{
   width: 80%;
@@ -269,11 +320,19 @@ select::after {
   width: 100%;
   height: 300px;
   display: grid;
-    grid-template-columns: repeat(auto-fill, 250px);
+    grid-template-columns: repeat(auto-fill,minmax(250px, 250px));
     gap: 12px;
   justify-content: space-between;
   align-items: flex-start;
   text-align: start;
+}
+
+@media (max-width: 720px) {
+
+.note_container {
+    font-size: 1rem;
+    grid-template-columns: 250px;
+  }
 }
 
 .noteCard{
@@ -317,7 +376,6 @@ select::after {
   border-radius:50%;  
   font-size: 1rem;
   cursor: pointer;
-
 }
 .deleteBtn{
   color: #e9e7e7;
@@ -325,7 +383,6 @@ select::after {
 .deleteBtn:hover{
   color: #464545;
 }
-
 
 .note_list {
   min-width: 50%;
@@ -338,8 +395,8 @@ select::after {
   font-size: 1.5rem;
   color: black;
   display: flex;
-  /* justify-content: space-between;
-  align-items: center; */
+  justify-content: space-between;
+  align-items: center;
   transition: all 0.3s ease;
 }
 
