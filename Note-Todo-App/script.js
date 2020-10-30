@@ -152,7 +152,6 @@ function getFromLocalNotes() {
     const noteDiv = document.createElement('div');
     noteDiv.classList.add('noteCard');
     noteDiv.id = element.id;
-    console.log(noteDiv.id);
 
     //delete button added to each note and append to tool div
     const deleteButton = document.createElement('button');
