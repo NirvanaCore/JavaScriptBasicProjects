@@ -30,3 +30,6 @@ you can add number of items and you can mark as done and delete to items that
 added before. A select option to see all items, completed items and remaining
 items. While to add note you have to click addNote then note app will open. you
 can add title and note text in that, with a delete button to delete note.
+
+## 4- Transparent LoginIn/SignUp page with BackgroundChange Randomly
+-- Login and Sign up transparent page with full validation. And Background Random Image with every time page refresh.  
