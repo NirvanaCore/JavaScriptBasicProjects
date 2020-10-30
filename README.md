@@ -22,7 +22,7 @@ questions it will show Score and a reload to button to start quiz from starting.
 or by random color through HexCode or RGB values and also print HexCode or
 RgbValue of color.
 
-## 4- Note and Tdo App
+## 4- Note and Todo App 
 
 -- App that can add both to-do list and, notes with title. If You want to
 addTodo List just click on todo list and todo app will open with add button and
