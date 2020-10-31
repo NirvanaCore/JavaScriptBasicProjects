@@ -15,8 +15,8 @@
     <div class="form-box">
       <img src="./image/profile.png" alt="" class="logo">
       <div class="button-box">
-        <button class="toggle-btn logInBtn" type="button ">LogIn</button>
-        <button class="toggle-btn signUpBtn" type="button ">SignIn</button>
+        <button class="toggle-btn logInPage" id="logInBtn" type="button ">LogIn</button>
+        <button class="toggle-btn signUpPage" id="signUpBtn" type="button ">SignUp</button>
       </div>
       <div class="social-icon">
         <i class="fab fa-facebook-f  fIcon" id="icon"></i>
@@ -25,16 +25,46 @@
       </div>
       <h2 class="text">OR</h2>
       <form id="log-in" class="logIn input-group">
-        <input type="text" class="input-field" placeholder="Enter User Name" required>
-        <input type="text" class="input-field" placeholder="Enter Password" required>
+        <div class="form-control">
+          <input type="text" class="input-field" id="loginUsername" placeholder="Enter User Name">
+          <i class="fas fa-check-circle"></i>
+          <i class="fas fa-exclamation-circle"></i>
+          <small></small>
+        </div>
+        <div class="form-control">
+          <input type="password" class="input-field" id="loginPassword" placeholder="Enter Password">
+          <i class="fas fa-check-circle"></i>
+          <i class="fas fa-exclamation-circle"></i>
+          <small></small>
+        </div>
         <p class="input-field"><input type="checkbox" class="check-box" required /> Remember Password</p>
         <button class="button submit-btn" type="submit">Log in</button>
       </form>
       <form id="sign-up" class="signUp input-group">
-        <input type="text" class="input-field" placeholder="Enter User Name" required>
-        <input type="text" class="input-field" placeholder="Enter Email Id" required>
-        <input type="text" class="input-field" placeholder="Enter Password" required>
-        <input type="text" class="input-field" placeholder="Confirm Password" required>
+        <div class="form-control">
+          <input type="text" class="input-field" id="username" placeholder="Enter User Name">
+          <i class="fas fa-check-circle"></i>
+          <i class="fas fa-exclamation-circle"></i>
+          <small></small>
+        </div>
+        <div class="form-control">
+          <input type="text" class="input-field" id="email" placeholder="Enter Email Id">
+          <i class="fas fa-check-circle"></i>
+          <i class="fas fa-exclamation-circle"></i>
+          <small></small>
+        </div>
+        <div class="form-control">
+          <input type="password" class="input-field" id="password" placeholder="Enter Password">
+          <i class="fas fa-check-circle"></i>
+          <i class="fas fa-exclamation-circle"></i>
+          <small></small>
+        </div>
+        <div class="form-control ">
+          <input type="password" class="input-field" id="passwordCheck" placeholder="Confirm Password">
+          <i class="fas fa-check-circle"></i>
+          <i class="fas fa-exclamation-circle"></i>
+          <small></small>
+        </div>
         <p class="input-field"><input type="checkbox" class="check-box" required /> I agree to the terms and conditions.
         </p>
         <button class="submit-btn" type="submit">Sign up</button>

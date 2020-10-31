@@ -41,6 +41,13 @@ h1 {
   }
 }
 
+@media (max-width: 420px) {
+  h1 {
+    padding-top: 2rem;
+    font-size: 1rem;
+  }
+}
+
 /* container for todo and note switch button */
 .note-box {
   display: flex;
@@ -51,7 +58,7 @@ h1 {
 }
 
 header {
-  position: fixed;
+  position: absolute;
   top: 5rem;
   left: 20%;
   right: 20%;
@@ -70,9 +77,25 @@ header,
 }
 
 @media(max-width: 720px) {
+  header {
+    left: 10%;
+    right: 10%;
+  }
 header,
 .addData {
     padding: 5px;
+  }
+}
+
+@media(max-width: 420px) {
+    header {
+      top: 5rem;
+      left: 5%;
+      right: 5%;
+    }
+  header,
+  .addData {
+    padding: 0;
   }
 }
 
@@ -89,7 +112,6 @@ header,
   margin: auto;
   width: 70%;
   height: 80%;
-  /* background-color: red; */
 }
 
 .addNotes{
@@ -100,7 +122,6 @@ header,
   margin: auto;
   width: 70%;
   height: 80%;
-  /* background-color: blue; */
 }
 
 .nav-item{
@@ -120,6 +141,18 @@ header,
   }
 }
 
+@media(max-width: 420px) {
+  .nav-item {
+    font-size: 1rem;
+    padding: 2px;
+  }
+  .addTodos {
+      top: 11rem;
+  }
+  .addNotes {
+      top: 11rem;
+  }
+}
 
 .nav-item:hover {
   background: #000;
@@ -141,6 +174,14 @@ header,
 .add_todo button {
     font-size: 1rem;
     padding: 10px;
+  }
+}
+
+@media(max-width: 320px) {
+  .add_todo input,
+  .add_todo button {
+    font-size: 12px;
+    padding: 5px;
   }
 }
 
@@ -221,6 +262,37 @@ form button:hover {
   }
   .select .filter_todo {
     font-size: 1rem;
+  }
+}
+
+@media (max-width: 720px) {
+  .trash_btn,
+  .complete_btn {
+    padding: 10px;
+    font-size: 12px;
+  }
+  .todo{
+    font-size: 1rem;
+  }
+  .select .filter_todo {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .trash_btn,
+  .complete_btn {
+    padding: 2px;
+    font-size: 10px;
+  }
+  .todo{
+    font-size: 12px;
+  }
+  .select .filter_todo {
+    font-size: 10px;
+  }
+  select{
+      font-size: 12px;
   }
 }
 
@@ -306,6 +378,16 @@ select::after {
   .add_Note button,
   .add_Note textarea {
     font-size: 1rem;
+    padding: 8px;
+  }
+}
+
+@media (max-width: 420px) {
+
+  .add_Note input,
+  .add_Note button,
+  .add_Note textarea {
+    font-size: 12px;
   }
 }
 
@@ -330,10 +412,18 @@ select::after {
 }
 
 @media (max-width: 720px) {
-
 .note_container {
     font-size: 1rem;
+    top: 28%;
     grid-template-columns: 250px;
+  }
+}
+
+@media (max-width: 420px) {
+
+  .note_container {
+    font-size: 1rem;
+    grid-template-columns: 200px;
   }
 }
 
@@ -411,5 +501,30 @@ select::after {
   transform: translateY(8rem)rotateZ(45deg);
   transition: 0.2s ease-in-out;
   opacity: 0;
+}
+
+@media (max-width: 720px) {
+  .noteCard button {
+    font-size: 13px;
+    width: 40px;
+    height: 40px;
+  }
+  .noteCard {
+    font-size: 12px;
+    height: 220px;
+  }
+}
+
+@media (max-width: 420px) {
+.noteCard button {
+  font-size: 10px;
+  width: 20px;
+  height: 20px;
+}
+.noteCard {
+  font-size: 10px;
+  height: 200px;
+}
+
 }
 
