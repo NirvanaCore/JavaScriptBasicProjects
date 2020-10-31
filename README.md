@@ -32,4 +32,4 @@ items. While to add note you have to click addNote then note app will open. you
 can add title and note text in that, with a delete button to delete note.
 
 ## 5- Transparent LoginIn/SignUp page with BackgroundChange Randomly
--- Login and Sign up transparent page with full validation. And Background Random Image with every time page refresh.  
+-- Login and Sign up transparent page with full validation. And Background Random Image with every time page refresh.  After validation if submitted successful it will generate success message. and this aap is responsive too.
